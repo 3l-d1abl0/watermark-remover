@@ -1,0 +1,121 @@
+<div class="container">
+    <%- include('./partials/header') %>
+  
+    <main class="main-content">
+      <h1 class="page-title">Remove Watermark From Images</h1>
+      <p class="subtitle">
+        Upload your image with unwanted watermarks, and our AI-powered tool will magically remove them while preserving the original quality of your image.
+      </p>
+  
+      <div class="card">
+        <form action="/process" method="post" enctype="multipart/form-data" id="upload-form">
+          <div class="drag-area" id="drop-area">
+            <i class="fas fa-cloud-upload-alt drag-icon"></i>
+            <h2 class="drag-text">Drag & Drop an Image</h2>
+            <p class="drag-hint">Or click to browse files</p>
+            <img id="file-preview" src="" alt="Preview">
+            <input type="file" name="image" id="file-input" class="file-input" accept="image/png, image/jpeg, image/jpg, image/gif, image/webp">
+          </div>
+          <div class="loading" id="loading" style="display: none;">
+            <i class="fas fa-spinner loading-spinner"></i>
+            <span>Processing your image, please wait...</span>
+          </div>
+          <div style="text-align: center;">
+            <button type="submit" class="upload-btn" id="upload-btn" disabled>
+              <i class="fas fa-magic"></i> Remove Watermark
+            </button>
+          </div>
+        </form>
+      </div>
+  
+      <div class="card">
+        <h2 style="margin-bottom: 1rem;">How it works</h2>
+        <p>Our tool uses Google's Gemini AI to:</p>
+        <ol style="margin-left: 1.5rem; margin-top: 0.5rem;">
+          <li>Analyze your image and identify watermarks</li>
+          <li>Intelligently remove the watermark while preserving image quality</li>
+          <li>Deliver a clean image without any visible traces of the watermark</li>
+        </ol>
+  
+        <div style="margin-top: 1.5rem;">
+          <h3 style="margin-bottom: 0.5rem;">Supported Image Formats</h3>
+          <p>JPG, PNG, GIF, and WEBP files up to 10MB.</p>
+        </div>
+      </div>
+    </main>
+  
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropArea = document.getElementById('drop-area');
+      const fileInput = document.getElementById('file-input');
+      const uploadBtn = document.getElementById('upload-btn');
+      const filePreview = document.getElementById('file-preview');
+      const uploadForm = document.getElementById('upload-form');
+      const loading = document.getElementById('loading');
+  
+      // Highlight drop area when file is dragged over
+      ['dragenter', 'dragover'].forEach(event => {
+        dropArea.addEventListener(event, function(e) {
+          e.preventDefault();
+          dropArea.classList.add('active');
+        });
+      });
+  
+      // Remove highlight when file is dragged out
+      ['dragleave', 'drop'].forEach(event => {
+        dropArea.addEventListener(event, function(e) {
+          e.preventDefault();
+          dropArea.classList.remove('active');
+        });
+      });
+  
+      // Handle file drop
+      dropArea.addEventListener('drop', function(e) {
+        e.preventDefault();
+        if (e.dataTransfer.files.length) {
+          fileInput.files = e.dataTransfer.files;
+          updateFilePreview(e.dataTransfer.files[0]);
+        }
+      });
+  
+      // Handle file selection via input
+      dropArea.addEventListener('click', function() {
+        fileInput.click();
+      });
+  
+      fileInput.addEventListener('change', function() {
+        if (fileInput.files.length) {
+          updateFilePreview(fileInput.files[0]);
+        }
+      });
+  
+      // Show preview of selected file and enable upload button
+      function updateFilePreview(file) {
+        if (!file.type.match('image.*')) {
+          alert('Please select an image file (JPG, PNG, GIF, or WEBP).');
+          return;
+        }
+  
+        if (file.size > 10 * 1024 * 1024) {
+          alert('File size exceeds 10MB limit. Please choose a smaller file.');
+          return;
+        }
+  
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          filePreview.src = e.target.result;
+          filePreview.style.display = 'block';
+          uploadBtn.disabled = false;
+        };
+        reader.readAsDataURL(file);
+      }
+  
+      // Show loading indicator when form is submitted
+      uploadForm.addEventListener('submit', function() {
+        loading.style.display = 'flex';
+        uploadBtn.disabled = true;
+      });
+    });
+  </script> 

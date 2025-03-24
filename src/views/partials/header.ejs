@@ -1,0 +1,25 @@
+<header class="header">
+    <div class="logo">
+      <i class="fas fa-eraser"></i>
+      <span>Remove Watermark From Image</span>
+    </div>
+    <div class="user-info">
+      <% if (user) { %>
+        <div class="user-profile">
+          <% if (user.photo) { %>
+            <img src="<%= user.photo %>" alt="<%= user.displayName %>" class="user-avatar">
+          <% } %>
+          <span class="user-name"><%= user.displayName %></span>
+          <a href="/logout" class="auth-button">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </a>
+        </div>
+      <% } else { %>
+        <a href="/login/google" class="auth-button">
+          <i class="fab fa-google"></i>
+          Sign in with Google
+        </a>
+      <% } %>
+    </div>
+  </header> 

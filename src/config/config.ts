@@ -27,7 +27,7 @@ export const config: Config = {
   fileTTL: parseInt(process.env.FILE_TTL || '600', 10), // 10 minutes in seconds
   googleClientId: process.env.GOOGLE_CLIENT_ID || '',
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-  googleCallbackUrl: process.env.GOOGLE_CALLBACK_URL || '/callback',
+  googleCallbackUrl: process.env.GOOGLE_CALLBACK_URL || 'http://localhost:3000/callback',
   geminiApiKey: process.env.GEMINI_API_KEY || '',
   sessionSecret: process.env.SESSION_SECRET || 'watermark-remover-secret',
   gaId: process.env.GA_ID || '',

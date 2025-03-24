@@ -1,14 +1,15 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs-extra';
-import dotenv from 'dotenv';
 import logger from 'morgan';
 import session from 'express-session';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import expressLayouts from 'express-ejs-layouts';
 import { config } from './config/config.js';
-
+import { setupPassport } from './config/passport';
+import { authRoutes } from './routes/auth.routes.js';
+import { indexRoutes } from './routes/index.routes.js';
 
 
 // Initialize Express app
@@ -46,6 +47,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Set up passport strategies
+setupPassport();
 
 // Make user and config available in templates
 app.use((req, res, next) => {
@@ -54,6 +57,11 @@ app.use((req, res, next) => {
   res.locals.GA_ID = process.env.GA_ID || '';
   next();
 });
+
+
+// Routes
+app.use('/', authRoutes);
+app.use('/', indexRoutes);
 
 
 // Error handler
