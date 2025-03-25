@@ -89,11 +89,13 @@ class ImageService {
 
             // Prepare the prompt for watermark removal
             const prompt = `
-              You are a world class photo editor. You have been tasked with removing a watermark from an image in which I have accidentally added watermarks.
-              First, examine the image and identify the watermark and other subjects in the image.
-              Once you have identified the watermark, remove it from the image while keeping the rest of the image intact.
-              If watermark is overlapping with other subjects, please ensure that you only remove the watermark and not the other subjects.
-              Please ensure that the final image does not contain any visible traces of the watermark and does not touch the other subjects in the image.
+                  You are a Professional top-notch Photographer and photo editor.
+                  You need to help a novice who have added watermark to one of its image.
+                  You need to remove all the watermarks without affectiong rest of the Image.
+                  First of all, examine the image and identify the watermarks and other subjects of the image.
+                  Once you have identified the watermarks, remove them from the image without disturbing rest of the image.
+                  If any watermark is overlapping with other subjects, please ensure that you only remove the watermark and not the other subjects.
+                  Please ensure that the final image does not contain any visible traces of the watermark and does not touch the other subjects in the image.
               `;
         
             // Convert image to a part object
@@ -117,6 +119,7 @@ class ImageService {
             // Process and save the response
             const parts = response.candidates?.[0]?.content?.parts || [];
             for (const part of parts) {
+              //console.log(part.text);
               if (part.inlineData) {
                 const imageBuffer = Buffer.from(part.inlineData.data, 'base64');
                 fs.writeFileSync(outputPath, imageBuffer);
