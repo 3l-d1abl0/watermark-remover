@@ -16,7 +16,8 @@ router.get('/login/google', passport.authenticate('google', {
 
 // Google OAuth callback
 router.get('/callback', passport.authenticate('google', {
-  failureRedirect: '/login'
+  failureRedirect: '/login',
+  successRedirect: '/'
 }), authController.googleCallback);
 
 // Direct Google login (alternative route)

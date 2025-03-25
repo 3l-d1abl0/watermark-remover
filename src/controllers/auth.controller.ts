@@ -52,7 +52,14 @@ export class AuthController {
       if (err) {
         console.error('Error during logout:', err);
       }
-      res.redirect('/');
+      // Clear the session
+      req.session.destroy((err) => {
+        if (err) {
+          console.error('Error destroying session:', err);
+        }
+        // Redirect to login page after clearing session
+        res.redirect('/login');
+      });
     });
   }
 } 
