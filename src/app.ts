@@ -10,6 +10,7 @@ import { config } from './config/config.js';
 import { setupPassport } from './config/passport';
 import { authRoutes } from './routes/auth.routes.js';
 import { indexRoutes } from './routes/index.routes.js';
+import { imageRoutes } from './routes/images.routes.js';
 
 
 // Initialize Express app
@@ -60,8 +61,9 @@ app.use((req, res, next) => {
 
 
 // Routes
-app.use('/', authRoutes);
-app.use('/', indexRoutes);
+app.use('/', authRoutes);   //auth pages
+app.use('/', indexRoutes);  //index Page
+app.use('/', imageRoutes);  //handle images calls
 
 
 // Error handler
