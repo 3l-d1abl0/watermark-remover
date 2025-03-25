@@ -1,13 +1,14 @@
 <header class="header">
     <div class="logo">
-      <i class="fa-solid fa-hand-scissors" style="color: #B197FC;"></i>
-      <span>Remove Watermarks</span>
+      <i class="fa-sharp-duotone fa-solid fa-scissors fa-xs"></i>
+      <span class="shine-text">Remove Watermarks</span>
+      <i class="fa-sharp-duotone fa-solid fa-scissors fa-flip-horizontal fa-xs"></i>
     </div>
     <div class="user-info">
       <% if (user) { %>
         <div class="user-profile">
           <% if (user.photo) { %>
-            <img src="<%= user.photo %>" alt="<%= user.displayName %>" class="user-avatar">
+            <!-- <img src="<%= user.photo %>" class="user-avatar"> -->
           <% } %>
           <span class="user-name"><%= user.displayName %></span>
           <a href="/logout" class="auth-button">

@@ -6,15 +6,14 @@
     --success-dark: #059669;
     --error: #ef4444;
     --error-light: #fecaca;
-    --bg-light: rgba(255, 255, 255, 0.08);
-    --bg-white: rgba(255, 255, 255, 0.12);
+    --bg-light: rgba(255, 255, 255, 0.05);
+    --bg-white: rgba(255, 255, 255, 0.1);
     --text-dark: #ffffff;
     --text-light: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.15);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    --glass-shine: linear-gradient(120deg, rgba(255,255,255,0.2), transparent, rgba(255,255,255,0.1));
-    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    --shadow-lg: 0 8px 32px 0 rgba(31, 38, 135, 0.47);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 4px 15px 0 rgba(31, 38, 135, 0.15);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --shadow-lg: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
 }
 
 * {
@@ -43,10 +42,10 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem 1rem;
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    background: var(--glass-shine), var(--bg-white);
-    border-radius: 1rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: var(--bg-white);
+    border-radius: 1.5rem;
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
     position: relative;
@@ -93,27 +92,26 @@ body {
 }
 
 .auth-button {
-    background: var(--glass-shine), rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px) saturate(160%);
-    -webkit-backdrop-filter: blur(8px) saturate(160%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: var(--bg-white);
     border: 1px solid var(--glass-border);
     color: white;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    box-shadow: var(--shadow);
+    box-shadow: var(--glass-shadow);
     position: relative;
     overflow: hidden;
 }
 
 .auth-button:hover {
-    background: var(--glass-shine), rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
 }
 
@@ -184,9 +182,9 @@ body {
 }
 
 .card {
-    background: var(--glass-shine), rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(16px) saturate(200%);
-    -webkit-backdrop-filter: blur(16px) saturate(200%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: var(--bg-white);
     border-radius: 1rem;
     padding: 2rem;
     border: 1px solid var(--glass-border);
@@ -201,9 +199,9 @@ body {
     padding: 2rem;
     text-align: center;
     border-radius: 1rem;
-    background: var(--glass-shine), rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: var(--bg-white);
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -211,12 +209,12 @@ body {
 }
 
 .drag-area:hover {
-    background: var(--glass-shine), rgba(255, 255, 255, 0.15);
+    background: var(--bg-light);
 }
 
 .drag-area.active {
     border-color: var(--primary-light);
-    background: var(--glass-shine), rgba(255, 255, 255, 0.2);
+    background: var(--bg-light);
 }
 
 .drag-icon {
@@ -287,9 +285,9 @@ body {
 }
 
 .result-card {
-    background: var(--glass-shine), rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(16px) saturate(200%);
-    -webkit-backdrop-filter: blur(16px) saturate(200%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: var(--bg-white);
     border-radius: 1rem;
     padding: 1.5rem;
     border: 1px solid var(--glass-border);
@@ -321,39 +319,43 @@ body {
 }
 
 .btn {
-    background: var(--glass-shine), rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px) saturate(160%);
-    -webkit-backdrop-filter: blur(8px) saturate(160%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: var(--bg-white);
     border: 1px solid var(--glass-border);
     color: white;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    box-shadow: var(--shadow);
+    box-shadow: var(--glass-shadow);
     position: relative;
     overflow: hidden;
 }
 
+.btn:hover {
+    transform: translateY(-2px);
+}
+
 .btn-primary {
-    background: rgba(99, 102, 241, 0.3);
+    background: rgba(99, 102, 241, 0.2);
 }
 
 .btn-primary:hover {
-    background: rgba(99, 102, 241, 0.5);
+    background: rgba(99, 102, 241, 0.3);
 }
 
 .btn-success {
-    background: rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.2);
 }
 
 .btn-success:hover {
-    background: rgba(16, 185, 129, 0.5);
+    background: rgba(16, 185, 129, 0.3);
 }
 
 .btn-outline {
@@ -363,7 +365,7 @@ body {
 }
 
 .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--bg-light);
 }
 
 .btn::before {
@@ -387,9 +389,9 @@ body {
 }
 
 .error-container {
-    background: var(--glass-shine), rgba(239, 68, 68, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(239, 68, 68, 0.05);
     border-left: 4px solid var(--error);
     border-radius: 0.5rem;
     padding: 1.5rem;
@@ -459,4 +461,79 @@ body {
     display: none;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Shine Text Effect */
+.shine-text {
+    position: relative;
+    display: inline-block;
+    color: var(--text-dark);
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 255, 255, 0.6) 45%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0.6) 55%,
+        rgba(255, 255, 255, 0.6) 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+@keyframes shine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Alternative version with different timing */
+.shine-text-slow {
+    position: relative;
+    display: inline-block;
+    color: var(--text-dark);
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 255, 255, 0.6) 45%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0.6) 55%,
+        rgba(255, 255, 255, 0.6) 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 6s linear infinite;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+/* Version with pause between animations */
+.shine-text-pause {
+    position: relative;
+    display: inline-block;
+    color: var(--text-dark);
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 255, 255, 0.6) 45%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0.6) 55%,
+        rgba(255, 255, 255, 0.6) 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite 2s;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+    font-weight: 600;
 } 

@@ -119,7 +119,7 @@ class ImageService {
             // Process and save the response
             const parts = response.candidates?.[0]?.content?.parts || [];
             for (const part of parts) {
-              //console.log(part.text);
+              console.log(part.text);
               if (part.inlineData) {
                 const imageBuffer = Buffer.from(part.inlineData.data, 'base64');
                 fs.writeFileSync(outputPath, imageBuffer);
