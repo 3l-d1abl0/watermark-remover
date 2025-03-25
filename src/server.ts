@@ -18,7 +18,7 @@ server.on('listening', function () {
 
 
 server.listen(port);
-server.timeout = 10000;
+server.timeout = 20000;
 
 
 
