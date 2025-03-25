@@ -1,0 +1,29 @@
+<div class="container">
+    <%- include('./partials/header') %>
+  
+    <main class="main-content">
+      <h1 class="page-title">Watermark Removal Result</h1>
+      
+      <div class="result-container">
+        <div class="result-card">
+          <h3 class="result-title">Original Image</h3>
+          <img src="<%= original_image %>" alt="Original Image" class="result-image">
+        </div>
+        
+        <div class="result-card">
+          <h3 class="result-title">Watermark Removed</h3>
+          <img src="<%= generated_image %>" alt="Processed Image" class="result-image">
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="/" class="btn btn-primary">
+          <i class="fas fa-arrow-left"></i> Process Another Image
+        </a>
+        
+        <a href="<%= generated_image %>" download="watermark_removed.png" class="btn btn-success" style="margin-left: 1rem;">
+          <i class="fas fa-download"></i> Download Result
+        </a>
+      </div>
+    </main>
+  </div> 

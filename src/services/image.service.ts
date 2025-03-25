@@ -112,7 +112,7 @@ class ImageService {
             const response = await result.response;
             
 
-            console.log("Gemini Response:", JSON.stringify(result)); // Log the full response
+            //console.log("Gemini Response:", JSON.stringify(result)); // Log the full response
 
             // Process and save the response
             const parts = response.candidates?.[0]?.content?.parts || [];

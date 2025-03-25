@@ -1,3 +1,4 @@
 comms.ts
 node_modules/**/*
 .env
+tmp/*
