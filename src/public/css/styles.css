@@ -44,14 +44,14 @@ body {
     padding: 2rem 1rem;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    background: var(--bg-white);
+    /*background: var(--bg-white);
     border-radius: 1.5rem;
     border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    box-shadow: var(--glass-shadow);*/
     position: relative;
     overflow: hidden;
 }
-
+/*Body shine  effect*/
 .container::before {
     content: '';
     position: absolute;
