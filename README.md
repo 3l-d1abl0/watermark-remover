@@ -1,9 +1,10 @@
-# Watermark Remover
-A Simple watermark removal tool. Uses Google's Gemini api to remove watermarks from Images.
+<h1 align="center"> Watermark Remover </h1>
+<p style="font-family: Arial; font-size: 13pt;Color: #711984;">A Simple watermark removal tool. Uses Google's Gemini api to remove watermarks from Images. 
 Built for educational purposes.
+</p>
 
 <p align="center">
-  <img src="/images/water-mark-meme-Screenshot_2025-03-25_20-12-26.png" alt="Gemini" width="500"/>
+  <img src="/images/water-mark-meme-Screenshot_2025-03-25_20-12-26.png" alt="Gemini" width="100%"/>
 </p>
 
 ## 🚀 Getting Started
